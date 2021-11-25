@@ -31,6 +31,7 @@ function Comment(props) {
         commentInfo(arr);
       })
       .catch(function () {});
+        // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return <div>{commentDisp}</div>;
 }
