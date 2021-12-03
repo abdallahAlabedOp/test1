@@ -1,5 +1,5 @@
 dependencies
-backEnd/node_modules
+bakEnd/node_modules
 task/node_modules
 /.pnp
 .pnp.js
