@@ -1,26 +1,6 @@
-import Sequelize from 'sequelize'
+import sequelize from "../util/DataBase.mjs";
+import postSchema from "../schema/PostSchema.mjs";
 
-class PostModel extends Sequelize {
-     Post = sequelize.define(
-        "post",
-        {
-            title: {
-            type: Sequelize.STRING,
-            field: "title", 
-          },
-          userId: {
-            type: Sequelize.INTEGER,
-            field: "user_id",
+const Post =  sequelize.define("post", postSchema);
 
-          },
-          body: {
-            type: Sequelize.STRING,
-            field: "body", 
-          },
-        },
-        {
-          freezeTableName: true,
-        }
-      );
-            
-}
+export default Post;

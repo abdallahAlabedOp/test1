@@ -1,29 +1,6 @@
-import Sequelize from 'sequelize'
+import sequelize from "../util/DataBase.mjs";
+import commentSchema from "../schema/CommentSchema.mjs";
 
-class CommentModel extends Sequelize {
-     Comment = sequelize.define(
-        "comment",
-        {
-          name: {
-            type: Sequelize.STRING,
-            field: "name", 
-          },
-          postId: {
-            type: Sequelize.STRING,
-            field: "post_id", 
-          },
-          email: {
-            type: Sequelize.STRING,
-            field: "email", 
-          },  body: {
-            type: Sequelize.STRING,
-            field: "body", 
-          }
-        },
-        {
-          freezeTableName: true, 
-        }
-      );
-            
-}
- 
+const Comment = sequelize.define("comment", commentSchema);
+
+export default Comment;

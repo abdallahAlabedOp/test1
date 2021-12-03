@@ -12,7 +12,7 @@ import { Button } from "@mui/material";
 import { UserContext } from "../contexats/UserContexts.jsx";
 const axios = require("axios");
 const theme = createTheme();
-export default function Login() {
+export  function Login() {
   const userData = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -26,7 +26,6 @@ export default function Login() {
     userData.setIsLogedIn(!userData.isLogedIn);
     if (userData.isLogedIn) userData.setEmail("");
     navigate('/home');
-
   };
 
   const go = () => {
@@ -35,6 +34,7 @@ export default function Login() {
       axios
         .get(api)
         .then(function (response) {
+          console.log(response);
           const obj = response.data.filter((user) => {
             if (user.email === userData.email) {
               return user;
@@ -43,7 +43,7 @@ export default function Login() {
           });
           userInfo(obj[0].id, obj[0].username);
         })
-        .catch(function (error) {});
+        // .catch(function (error) {});
   };
 
   return (
@@ -75,6 +75,7 @@ export default function Login() {
                   autoComplete="email"
                   autoFocus
                   onChange={handleChange}
+                  data-testid ="login"
                 />
                 <TextField
                   margin="normal"
@@ -99,3 +100,4 @@ export default function Login() {
         </ThemeProvider>
   );
 }
+export default Login;
